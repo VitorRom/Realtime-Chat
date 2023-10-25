@@ -1,0 +1,20 @@
+import { useState } from 'react'
+import './App.css'
+import Chat from './Components/Chat/Chat'
+import Join from './Components/Join/Join'
+
+
+function App() {
+  const [chatVisibility, setChatVisibility] = useState(false)
+  const [socket, setSocket] = useState(null)
+
+  return (
+    <div>
+      {
+        chatVisibility ? <Chat socket={socket} /> : <Join setSocket={setSocket} setChatVisibility= {setChatVisibility} />
+      }
+    </div>
+  )
+}
+
+export default App
